@@ -20,10 +20,10 @@ var band = function (p) {
 
 	  p.drawWave = function (i) {
 	    p.randomSeed(123);
-		for(x=0; x<=width; x+=10) {
+		for(x=0; x<=p.windowWidth; x+=10) {
 		  	this.amplitude = p.map(i,0,numberOfWaves-1, 1, 100);
-		  	this.offSet = 2*p.PI/width*x;
-		  	y = height/2 + Math.sin(theta+this.offSet)*this.amplitude;
+		  	this.offSet = 2*p.PI/p.windowWidth*x;
+		  	y = p.windowHeight/2 + Math.sin(theta+this.offSet)*this.amplitude;
 		  	p.fill(p.random(255)/numberOfWaves*i,p.random(255)/numberOfWaves*i,p.random(255)/numberOfWaves*i);
 		  	p.ellipse(x, y, 4, 4);
 	  	}
