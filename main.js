@@ -11,7 +11,6 @@ function scrollToPosition(element) {
 }
 
 $(function() {
-
     //Create an Array of posts
     var posts = $('.post');
     var position = 0; //Start Position
