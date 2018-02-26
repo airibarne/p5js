@@ -1,8 +1,5 @@
 	
 var atom = function(p) {
-	/* Centre the pattern at the middle of the screen */
-	var x0 = p.windowWidth/2;
-	var y0 = p.windowHeight/2;
 	/* Parametrize the sketch */
 	var r0 = 300; // size of the pattern
 	var dr = 25; // step between circles
@@ -14,7 +11,9 @@ var atom = function(p) {
 	}
 
 	p.draw = function () {	
-		//console.log("jeje");
+		/* Centre the pattern at the middle of the screen */
+		var x0 = p.windowWidth/2;
+		var y0 = p.windowHeight/2;
 		if(p.mouseIsPressed) {
 			shake=true;
 			temp++;

@@ -1,13 +1,6 @@
-// var lastScrollTop = 0;
-// $(window).scroll(function(event){
-//    var st = $(this).scrollTop();
-//    if (st > lastScrollTop){
-//     	$('#atom').animatescroll();
-//    } else {
-//     	$('#band').animatescroll();
-//    }
-//    lastScrollTop = st;
-// });
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
 
 function scrollToPosition(element) {
     if (element !== undefined) {
