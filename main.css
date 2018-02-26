@@ -1,0 +1,31 @@
+.nav {
+  margin-top: 20px;
+}
+
+#next {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  box-sizing: border-box;
+}
+
+#prev {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+  box-sizing: border-box;
+}
