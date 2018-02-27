@@ -11,6 +11,14 @@ var band = function (p) {
 	  };
 
 	  p.draw = function () {
+	    if(p.mouseIsPressed) {
+			speed+=0.005;
+		} else {
+			if(speed>0.04) {
+				speed-=0.01;
+				//console.log(speed);
+			}
+		}
 	    p.background(0);
 		for(i=0; i<numberOfWaves; i++) {
 			p.drawWave(i);

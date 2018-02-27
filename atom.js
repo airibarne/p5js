@@ -23,12 +23,12 @@ var atom = function(p) {
 		}
 		lineDensity = temp; // number of connections drawed
 		speed = temp/50;
-		p.background(68,61,107);
+		p.background('#2F496E');//p.background('#488a99');
 		k = 0;
 		size = 15;
 		sizeStep = 1;
 		dots = [];
-		p.fill(255,123,79);
+		p.fill('#ED8C72')//p.fill('#DBAE58');
 		for(r = dr; r <= r0; r+=dr) {
 			k += 1;
 			size -= sizeStep;
@@ -42,7 +42,7 @@ var atom = function(p) {
 				bug.display();
 			}	
 		}
-		p.stroke(0,60);
+		p.stroke(0,40);
 		if(shake)
 			for(i = 0; i<lineDensity; i++) {
 				indexA = Math.floor(Math.random()*dots.length)
