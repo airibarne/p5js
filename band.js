@@ -16,9 +16,8 @@ var band = function (p) {
 		} else {
 			if(speed>0.04) {
 				speed-=0.01;
-				//console.log(speed);
 			}
-		}
+		}			
 	    p.background(0);
 		for(i=0; i<numberOfWaves; i++) {
 			p.drawWave(i);
