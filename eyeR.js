@@ -32,16 +32,24 @@ var eyeR = function (p) {
 	  	p.arc(this.cX, this.cY, this.r0, this.r0,Math.PI*p.closeness, Math.PI*(1-p.closeness), p.CHORD);
 	  	// Blue pupil
 	  	p.fill(pupilColor);
-	  	// Gotta find the arc's angle to simulate the closing eye with fixed pupil
+	  	// // Gotta find the arc's angle to simulate the closing eye with fixed pupil
 	  	if(p.abs(2*p.sin(Math.PI*p.closeness))<1) {
 	  		this.pupilTheta = p.asin(2*p.sin(Math.PI*p.closeness));
 	  	} else {
 	  		this.pupilTheta = Math.PI/2;
 	  	}
 	  	p.arc(this.cX,this.cY,this.r2,this.r2,this.pupilTheta,Math.PI-this.pupilTheta,p.CHORD);
-	  	// 
+	  	// // 
 	  	p.fill(backgroundColor);
-	  	p.arc(this.cX, this.cY, this.r0, this.r0, Math.PI*(1-p.closeness)+Math.PI*0.07, Math.PI*p.closeness-Math.PI*0.07, p.CHORD);
+	  	this.lidZ = 0.07;
+	  	if(p.closeness - this.lidZ < -0.5) {
+	  		this.fullyOpen = true;
+	  	} else {
+	  		this.fullyOpen = false;
+	  	}
+	  	if(!this.fullyOpen) {
+	  		p.arc(this.cX, this.cY, this.r0, this.r0, Math.PI*(1-p.closeness + this.lidZ), Math.PI*(p.closeness - this.lidZ), p.CHORD);
+	  	}
 	  	// The eye will wide-open when mouse is clicked. 
 	  	// We want the animation to last a fixed amount of time so we need time wideStart
 	  	p.mouseClicked = function() {
@@ -78,7 +86,7 @@ var eyeR = function (p) {
 	  			if(p.closeness>-0.39) {
 	  				p.closeness-=0.04;
 	  			} else {
-	  				p.closeness = -.43;
+	  				p.closeness = -.499;
 	  			}
 	  			if(this.r2 < p.windowWidth/5.5) {
 	  				this.r2+=(p.windowWidth/10)*0.05;
