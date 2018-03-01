@@ -45,8 +45,10 @@ var eyeR = function (p) {
 	  	// The eye will wide-open when mouse is clicked. 
 	  	// We want the animation to last a fixed amount of time so we need time wideStart
 	  	p.mouseClicked = function() {
-			wide = true;
-			wideStart = p.second();
+			if(Math.pow(p.mouseX-cX,2)+Math.pow(p.mouseY-cY,2)<Math.pow(r1/2,2)) {
+				wide = true;
+				wideStart = p.second();
+			}
 		}; 
 		// The eye will wink at random times. Decrease 300 to make winking more probable. 
 		if(Math.floor(300*Math.random())==100) {
@@ -54,7 +56,7 @@ var eyeR = function (p) {
 		}
 		// Wink effect
 		if(this.wink && !wide) {
-	  		if(p.closeness < 0.499) {
+	  		if(p.closeness < 0.5) {
 	  			p.closeness+=0.5/3; // close the eye 'till closeness = 0.5 (fully closed)
 	  		} else {
 	  			this.wink = false; // when fully closed

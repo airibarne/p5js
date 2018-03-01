@@ -16,7 +16,8 @@ $(function() {
     var position = 0; //Start Position
     var next = $('#next');
     var prev = $('#prev').hide();
-
+    // On reload or refresh scroll to top
+    scrollToPosition(posts[0])
     //Better performance to use Id selectors than class selectors
     next.click(function(evt) {
         //Scroll to next position
@@ -36,6 +37,18 @@ $(function() {
         scrollToPosition(posts[position]);
         if (position === 0) {
             prev.hide();
+        }
+    });
+});
+
+//Mouse wheel event
+$(document).ready(function(){
+    $('body').bind('mousewheel', function(e){
+        if(e.originalEvent.wheelDelta /120 > 0) {
+            console.log('scrolling up !');
+        }
+        else{
+            console.log('scrolling down !');
         }
     });
 });

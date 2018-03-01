@@ -6,7 +6,7 @@ var atom = function(p) {
 	var shake, temp, k, lineDensity, alpha, speed, x, y;
 
 	p.setup = function () {
-		var canvas = p.createCanvas(p.windowWidth, p.windowHeight-5);
+		var canvas = p.createCanvas(p.windowWidth, p.windowHeight);
 		canvas.parent('atom');
 	}
 
@@ -15,8 +15,10 @@ var atom = function(p) {
 		var x0 = p.windowWidth/2;
 		var y0 = p.windowHeight/2;
 		if(p.mouseIsPressed) {
-			shake=true;
-			temp++;
+			if(Math.pow(p.mouseX-x0,2)+Math.pow(p.mouseY-y0,2)<Math.pow(r0,2)) {
+				shake=true;
+				temp++;
+			}
 		} else {
 			shake=false;
 			temp=0;
